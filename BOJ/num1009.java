@@ -1,7 +1,7 @@
 package algo;
 
 import java.util.Scanner;
-
+//분산처리
 public class num1009 {
 
 	public static void main(String[] args) {
