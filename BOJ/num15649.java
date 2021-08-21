@@ -13,33 +13,31 @@ public class num15649 {
 		N=sc.nextInt();
 		M=sc.nextInt();
 		board=new int[N+1];
-		board2=new int[M];
+		board2=new int[M+1];
 		check=new boolean[N+1];
 		for(int i=1;i<=N;i++) {
 			board[i]=i;
 		}
 		int cnt=0;
-		for (int i = 1; i <= N; i++) {
-			check[i]=true;
-			dfs(i,cnt);
-			check[i]=false;
-		}
+
+		dfs(0);
+
 
 	}
-	private static void dfs(int x,int cnt) {
-		board[cnt]=x;
-		cnt++;
+	private static void dfs(int cnt) {
 		if(cnt==M) {
-			for (int i = 0; i < M; i++) {
-				System.out.print(board[i]+" ");
+			for (int i = 1; i <= M; i++) {
+				System.out.print(board2[i]+" ");
 			}
 			System.out.println();
 			return;
 		}
+		cnt++;
 		for (int i = 1; i <= N; i++) {
 			if(!check[i]) {
 				check[i]=true;
-				dfs(i,cnt);
+				board2[cnt]=i;
+				dfs(cnt);
 				check[i]=false;
 			}
 		}
